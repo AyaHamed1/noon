@@ -7,7 +7,14 @@ class Country extends StatefulWidget {
 }
 
 class _CountryState extends State<Country> {
-  Widget _buildRow(String image, String myText, Icon icon){
+  bool _isChecked = true;
+  void onChnaged( bool value ){
+    setState(() {
+      _isChecked = value;
+    });
+  }
+
+  Widget _buildRow(String image, String myText, Checkbox icon){
     return Padding(
       padding: const EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 15),
       child: Row(children: <Widget>[
@@ -43,15 +50,19 @@ class _CountryState extends State<Country> {
             fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blueGrey
           ),),
         ),
-          _buildRow("assets/ksa.png", "Saudi Arabia", Icon(Icons.check_circle_outline, size: 17, color: Colors.blueGrey,)),
+          _buildRow("assets/ksa.png", "Saudi Arabia", Checkbox(
+            tristate: true, activeColor: Colors.blue, checkColor: Colors.white, value: false,)),
           Container(height: 1, width: MediaQuery.of(context).size.width, decoration: BoxDecoration(
               color: Colors.grey[300]
           ),),
-          _buildRow('assets/uaeicon.png', "United Arab Emirates", Icon(Icons.check_circle_outline, size: 17, color: Colors.blueGrey,)),
+          _buildRow('assets/uaeicon.png', "United Arab Emirates",  Checkbox(
+            tristate: true, activeColor: Colors.blue, checkColor: Colors.white, value: false,)),
           Container(height: 1, width: MediaQuery.of(context).size.width, decoration: BoxDecoration(
               color: Colors.grey[300]
           ),),
-          _buildRow("assets/EgyptFlag.png", "Egypt", Icon(Icons.check_circle, size: 17, color: Colors.blue[900],)),
+          _buildRow("assets/EgyptFlag.png", "Egypt", Checkbox(
+            activeColor: Colors.blue, checkColor: Colors.white,
+            value: _isChecked, onChanged: (bool value){onChnaged(value);},)),
           Container(height: 1, width: MediaQuery.of(context).size.width, decoration: BoxDecoration(
               color: Colors.grey[300]
           ),),

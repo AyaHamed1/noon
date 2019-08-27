@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:noon/Screens/Details.dart';
 import 'package:noon/Screens/HomePage.dart';
+import 'package:loader_search_bar/loader_search_bar.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -95,7 +97,7 @@ class _HomeState extends State<Home> {
       child: Container(
         height: 350, width: 170,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
+          border: Border.all(color: Colors.grey[300]),  color: Colors.white
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -193,7 +195,9 @@ class _HomeState extends State<Home> {
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.search, size: 30, color: Colors.black45,),
+            child: IconButton( icon: Icon(Icons.search, size: 30, color: Colors.black45,), onPressed: (){
+              showSearch(context: context, delegate: null);
+            },),
           )
         ],
       ),
@@ -233,6 +237,7 @@ class _HomeState extends State<Home> {
             },),
         ),
       ],),
+
     );
   }
 }

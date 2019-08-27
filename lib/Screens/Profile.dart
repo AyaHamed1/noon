@@ -64,16 +64,20 @@ class _ProfileState extends State<Profile> {
             ),),
           ],),
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(15),
-          child: Container( decoration: BoxDecoration( color: Colors.grey),
-            width: 150, height: 150,
-            child: Center(child: _image== null? Text('No Profile Photo'):Image.file(_image, fit: BoxFit.fill,)),
-          ),
+        Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: Container(
+                width: 150, height: 170,
+                child: Center(child: _image== null? Text('No Profile Photo'):Image.file(_image, fit: BoxFit.fill,)),
+              ),
+            ),
+            RaisedButton(child: Text('Choose Photo'), onPressed: (){_onPressed();},),
+          ],
         ),
-        RaisedButton(child: Text('Choose Photo'), onPressed: (){_onPressed();},),
           SizedBox(height: 50,),
           Container( height: 60, width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(color: Colors.white),
@@ -92,11 +96,25 @@ class _ProfileState extends State<Profile> {
               ],),
           ),),
           SizedBox(height: 15,),
-          Container(height: 250, width: MediaQuery.of(context).size.width,
+          Container(height: 210, width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(color: Colors.white),
-            child: Column(children: <Widget>[
-
-          ],),
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Column( crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                Text('First Name', style: TextStyle(color: Colors.grey),),
+                  SizedBox(height: 10,),
+                Text( 'Aya', style: TextStyle(fontWeight: FontWeight.bold),),
+                  SizedBox(height: 25,),
+                  Text('Last Name', style: TextStyle(color: Colors.grey),),
+                  SizedBox(height: 10,),
+                  Text( 'Hamed', style: TextStyle(fontWeight: FontWeight.bold),),
+                  SizedBox(height: 25,),
+                  Text('Receive Communications in', style: TextStyle(color: Colors.grey),),
+                  SizedBox(height: 10,),
+                  Text( 'English', style: TextStyle(fontWeight: FontWeight.bold),),
+                ],),
+            ),
           ),
       ],),
     );

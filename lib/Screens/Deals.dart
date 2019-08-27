@@ -14,7 +14,7 @@ class _DealsState extends State<Deals> {
       child: Container(
         height: 300, width: 198,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey[300]),
+          border: Border.all(color: Colors.grey[300]), color: Colors.white
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -127,7 +127,7 @@ class _DealsState extends State<Deals> {
         Padding(
           padding: const EdgeInsets.only(left: 45, right: 45),
           child: Container(height: 40, width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Colors.white),
+          decoration: BoxDecoration(color: Colors.transparent),
             child: Row(children: <Widget>[
               Container(
                 height: 20, width: 55,

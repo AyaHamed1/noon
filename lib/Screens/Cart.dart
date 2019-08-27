@@ -141,20 +141,13 @@ class _CartState extends State<Cart> {
           decoration: BoxDecoration(color: Colors.blue[50]),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(25),
-              child: Container(height: 70, width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(color: Colors.white),
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: Row(children: <Widget>[
-                  Text('Enter Cupon Code or Gift Card', style: TextStyle(fontSize: 15,),),
-                  Expanded(child: SizedBox(),),
-                  Text('APPLY', style: TextStyle(fontSize: 15, color: Colors.blue[800], fontWeight: FontWeight.bold),)
-                ],),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: TextField( style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 15),
+                  decoration:
+                  InputDecoration( hintText: "Enter Cupon Code or Gift Card", hintStyle: TextStyle(
+                    color: Colors.grey, fontSize: 15,),),),
               ),
-              ),
-            ),
               Padding(
                 padding: const EdgeInsets.only( left: 25, right: 25),
                 child: Row(mainAxisAlignment: MainAxisAlignment.start,
@@ -175,7 +168,7 @@ class _CartState extends State<Cart> {
                       child: Row(
                         children: <Widget>[
                           SizedBox(width: 2,),
-                          Text('Dakahlia'),
+                          Text(' Dakahlia'),
                           SizedBox(width: 10),
                           Icon(Icons.keyboard_arrow_down, color: Colors.blueGrey, size: 15,)
                         ],
