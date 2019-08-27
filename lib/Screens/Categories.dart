@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:noon/Screens/HomePage.dart';
 import 'package:vertical_tabs/vertical_tabs.dart';
+import 'package:loader_search_bar/loader_search_bar.dart';
+
 
 class Categories extends StatefulWidget {
   @override
@@ -139,41 +141,21 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Theme.of(context).splashColor,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset(
-              'assets/logo3.png',
-              height: 35,
-              width: 35,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              "n o o n",
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton( onPressed: (){},
-              icon: Icon(
-                Icons.search,
-                size: 30,
-                color: Colors.black45,
-              ),
-            ),
+      appBar: SearchBar(
+          searchHint: 'Search',
+          //iconified: false,
+          defaultBar:AppBar(
+            centerTitle: true,
+            backgroundColor: Theme.of(context).splashColor,
+            title: Row( mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset('assets/logo3.png', height: 35, width: 35,),
+                SizedBox(width: 10,),
+                Text("n o o n", style: TextStyle(
+                    color: Colors.black54, fontSize: 23, fontWeight: FontWeight.bold
+                ),),
+              ],),
           )
-        ],
       ),
       body: VerticalTabs(
         tabsWidth: .25 * MediaQuery.of(context).size.width,

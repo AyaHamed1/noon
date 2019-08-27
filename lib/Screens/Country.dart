@@ -58,7 +58,7 @@ class _CountryState extends State<Country> {
           _buildRow('assets/uaeicon.png', "United Arab Emirates",  Checkbox(
             tristate: true, activeColor: Colors.blue, checkColor: Colors.white, value: false,)),
           Container(height: 1, width: MediaQuery.of(context).size.width, decoration: BoxDecoration(
-              color: Colors.grey[300]
+              color: Colors.grey[300],
           ),),
           _buildRow("assets/EgyptFlag.png", "Egypt", Checkbox(
             activeColor: Colors.blue, checkColor: Colors.white,
