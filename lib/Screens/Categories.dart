@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:noon/Screens/Deals.dart';
-import 'package:noon/Screens/Home.dart';
+import 'package:noon/Screens/HomePage.dart';
 import 'package:vertical_tabs/vertical_tabs.dart';
 
 class Categories extends StatefulWidget {
@@ -9,7 +8,47 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  Widget _card(_itemCount) {
+
+  List _text=[
+    'Top in noon',
+    'Shop by Brand',
+    'Gaming',
+    'Top categories',
+  ];
+
+  List _image= [
+    'assets/bag.PNG',
+    'assets/tv1.PNG',
+    'assets/essence.jpeg',
+    'assets/banana.jpeg',
+    'assets/bag.PNG',
+    'assets/tv1.PNG',
+    'assets/essence.jpeg',
+    'assets/banana.jpeg',
+    'assets/bag.PNG',
+    'assets/tv1.PNG',
+    'assets/essence.jpeg',
+    'assets/banana.jpeg',
+  ];
+
+  List _name= [
+    'Zippered Backpack',
+    'SAMSUNG',
+    'Blusher',
+    'Banana Powder',
+    'Zippered Backpack',
+    'SAMSUNG',
+    'Blusher',
+    'Banana Powder',
+    'Zippered Backpack',
+    'SAMSUNG',
+    'Blusher',
+    'Banana Powder',
+  ];
+
+
+  Widget _card(_itemCount,_titleCount) {
+    //  int _count = 0;
     return ListView(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -17,7 +56,7 @@ class _CategoriesState extends State<Categories> {
         Padding(
           padding: const EdgeInsets.only(top: 15, bottom: 10),
           child: Text(
-            'title is here',
+            _text[_titleCount],
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ),
@@ -26,7 +65,7 @@ class _CategoriesState extends State<Categories> {
     );
   }
 
-  Widget _moreCard(_itemCount) {
+  Widget _moreCard(_itemCount,_titleCount) {
     return ListView(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -36,7 +75,7 @@ class _CategoriesState extends State<Categories> {
           child: Row(
             children: <Widget>[
               Text(
-                'title is here',
+                _text[_titleCount],
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
               ),
               Expanded(
@@ -51,7 +90,9 @@ class _CategoriesState extends State<Categories> {
                       fontWeight: FontWeight.bold,
                       color: Colors.blue),
                 ),
-                onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));},
+                onTap: (){Navigator.push(
+                    context, MaterialPageRoute(
+                    builder: (context) => HomePage(2)));},
               ),
             ],
           ),
@@ -77,19 +118,19 @@ class _CategoriesState extends State<Categories> {
               Padding(
                 padding: const EdgeInsets.all(6),
                 child: Image.asset(
-                  'assets/bag.PNG',
+                  _image[index],
                   fit: BoxFit.fill,
                   width: 80,
                   height: 70,
                 ),
               ),
               Text(
-                'Back packs',
+                _name[index],
                 style: TextStyle(fontSize: 11),
               ),
             ],
           ),
-          onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) =>Deals()));},
+          onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) =>HomePage(2)));},
         );
       },
     );
@@ -162,72 +203,72 @@ class _CategoriesState extends State<Categories> {
         ],
         contents: <Widget>[
           ListView(children: <Widget>[
-            _card(4),
-            _card(7),
+            _card(4,0),
+            _card(7,1),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _card(5),
-            _moreCard(8),
+            _card(5,0),
+            _moreCard(8,1),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _moreCard(5),
-            _card(3),
-            _moreCard(6),
-            _moreCard(3),
+            _moreCard(5,0),
+            _card(3,1),
+            _moreCard(6,0),
+            _moreCard(3,1),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _moreCard(5),
-            _card(6),
+            _moreCard(5,0),
+            _card(6,1),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _card(4),
+            _card(4,0),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _card(4),
-            _moreCard(5),
+            _card(4,0),
+            _moreCard(5,1),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _moreCard(5),
-            _card(7),
+            _moreCard(5,0),
+            _card(7,1),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _card(4),
-            _card(3),
-            _moreCard(3),
+            _card(4,0),
+            _card(3,1),
+            _moreCard(3,2),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _card(3),
-            _moreCard(5),
-            _card(3),
+            _card(3,0),
+            _moreCard(5,1),
+            _card(3,2),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _moreCard(5),
-            _card(7),
+            _moreCard(5,0),
+            _card(7,1),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _card(4),
-            _moreCard(5),
-            _moreCard(3),
+            _card(4,0),
+            _moreCard(5,1),
+            _moreCard(3,2),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _moreCard(3),
-            _card(2),
-            _moreCard(3),
+            _moreCard(3,0),
+            _card(2,1),
+            _moreCard(3,2),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _moreCard(3),
-            _card(2),
-            _moreCard(3),
+            _moreCard(3,0),
+            _card(2,1),
+            _moreCard(3,2),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _moreCard(3),
-            _card(2),
-            _moreCard(3),
+            _moreCard(3,0),
+            _card(2,1),
+            _moreCard(3,2),
           ], padding: EdgeInsets.all(10)),
           ListView(children: <Widget>[
-            _moreCard(3),
-            _card(2),
-            _moreCard(3),
+            _moreCard(3,0),
+            _card(2,1),
+            _moreCard(3,2),
           ], padding: EdgeInsets.all(10)),
         ],
       ),
