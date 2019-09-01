@@ -70,9 +70,18 @@ class _ProfileState extends State<Profile> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(15),
-              child: Container(
+              child:_image== null? Container(
                 width: 150, height: 170,
-                child: Center(child: _image== null? Text('No Profile Photo'):Image.file(_image, fit: BoxFit.fill,)),
+                child: Center(child:  Text('No Profile Photo')),
+              ):  Container(
+                width: 100,
+                  height: 100,
+                decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(90),
+                  image: DecorationImage(
+                    image: FileImage(_image), fit: BoxFit.cover
+                  )
+                ),
               ),
             ),
             RaisedButton(child: Text('Choose Photo'), onPressed: (){_onPressed();},),
