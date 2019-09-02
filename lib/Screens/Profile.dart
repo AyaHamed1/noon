@@ -10,6 +10,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  String _name = 'Aya Hamed';
   File _image;
 
   Future getImage() async {
@@ -66,27 +67,31 @@ class _ProfileState extends State<Profile> {
       ),
       body: ListView(
         children: <Widget>[
-        Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child:_image== null? Container(
-                width: 150, height: 170,
-                child: Center(child:  Text('No Profile Photo')),
-              ):  Container(
-                width: 100,
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child:_image== null? Container(
+                  width: 100, height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(90),
+                  ),
+                  child: Center(child:  Text(_name[0],style: TextStyle(fontSize: 50,color: Colors.black87),)),
+                ):  Container(
+                  width: 100,
                   height: 100,
-                decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(90),
-                  image: DecorationImage(
-                    image: FileImage(_image), fit: BoxFit.cover
-                  )
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(90),
+                      image: DecorationImage(
+                          image: FileImage(_image), fit: BoxFit.cover
+                      )
+                  ),
                 ),
               ),
-            ),
-            RaisedButton(child: Text('Choose Photo'), onPressed: (){_onPressed();},),
-          ],
-        ),
+              RaisedButton(child: Text('Choose Photo'), onPressed: (){_onPressed();},),
+            ],
+          ),
           SizedBox(height: 50,),
           Container( height: 60, width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(color: Colors.white),
