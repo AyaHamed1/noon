@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:noon/Screens/NewAdd.dart';
 
+
 class Addresses extends StatefulWidget {
   @override
   _AddressesState createState() => _AddressesState();
@@ -94,7 +95,7 @@ class _AddressesState extends State<Addresses> {
             ),
           ),
           Expanded(child: SizedBox(),),
-          InkWell(  onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => NewAdd())); },
+          InkWell(  onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => LocationOnMap())); },
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: 50,
